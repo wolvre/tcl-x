@@ -1,0 +1,30 @@
+digraph network{
+A[label = "normal\\s,p\\start"];
+B[label="attacked_b\\p"];
+C[label="attacked_c\\p"];
+D[label="destroyed\\q\\end"];
+E[label="enter_server\\p"];
+F[label="virus\\p\\start"];
+G[label="data_stolen\\p,t\\end"];
+H[label="failed\\r\\end"];
+_PROPERTY_prop1[label="TCL:<4><+a>(|a|==1 && <+>true U (q || r))"];
+_PROPERTY_prop2[label="TCL:<4><+a>(|a|<=2 && <+>true U t)"];
+_PROPERTY_prop3[label="TCL:<4><+>true U s"];
+_PROPERTY_prop4[label="TCL:<a>(|a|==1 && <+>p U (p && t))"];
+_PROPERTY_prop5[label="TCL:(!<a>{3} in a) && <a><+>true U t"];
+A->B[label="(1,-,-,-)"];
+B->A[label="(-,-,-,1)"];
+A->C[label="(-,1,-,-)"];
+C->A[label="(-,-,-,1)"];
+B->D[label="(1,-,-,2)"];
+B->E[label="(1,-,1,2)"];
+C->D[label="(-,1,-,2)"];
+C->E[label="(-,1,1,2)"];
+E->A[label="(-,-,-,1)"];
+E->F[label="(1,-,-,2)"];
+F->E[label="(-,-,-,1)"];
+E->G[label="(-,1,-,2)"];
+G->E[label="(-,-,-,1)"];
+F->H[label="(1,-,-,2)"];
+G->H[label="(-,1,-,2)"];
+}
